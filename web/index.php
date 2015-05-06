@@ -12,8 +12,7 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
 // Our web handlers
 $app->get('/', function () use ($app) {
 		$app['monolog']->addDebug('logging output.');
-		echo 'Welcome to the daddydonkeylabs Recurly Webhook server!';
-		return;
+		return 'Welcome to the daddydonkeylabs Recurly Webhook server!';
 	});
 
 $app->post('/', function () use ($app) {
@@ -23,7 +22,7 @@ $app->post('/', function () use ($app) {
 		if ($notification->type) {
 			echo 'Got an XML notification from Recurly:<br>'.$notification->type;
 			updateChartmogul($post_xml);
-			return 'done, 200';
+			return 'Done, 200';
 		} else {
 			return "Error occured!";
 		}
