@@ -22,9 +22,10 @@ $app->post('/', function () use ($app) {
 		if ($notification->type) {
 			echo 'Got an XML notification from Recurly:<br>'.$notification->type;
 			updateChartmogul($post_xml);
-			return 'Done, 200';
+			return header("Status: 200");
 		} else {
-			return "Error occured!";
+			echo "Error occured!";
+			return header("Status: 500");
 		}
 	});
 
@@ -80,9 +81,6 @@ function updateChartmogul($xml) {
 	$options = array(
 		CURLOPT_HTTPHEADER     => $headers,
 		CURLOPT_URL            => $url,
-		CURLOPT_FRESH_CONNECT  => true,
-		CURLOPT_POST           => true,
-		CURLOPT_BINARYTRANSFER => true,
 		CURLOPT_POSTFIELDS     => $xml,
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_CONNECTTIMEOUT => 30,
