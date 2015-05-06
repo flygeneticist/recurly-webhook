@@ -12,7 +12,8 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
 // Our web handlers
 $app->get('/', function () use ($app) {
 		$app['monolog']->addDebug('logging output.');
-		return 'Welcome to the daddydonkeylabs Recurly Webhook server!';
+		echo 'Welcome to the daddydonkeylabs Recurly Webhook server!';
+		return;
 	});
 
 $app->post('/', function () use ($app) {
