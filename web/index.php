@@ -71,7 +71,7 @@ class Recurly_PushNotification {
 	}
 }
 
-function updateChartmogul(urlencode($xml)) {
+function updateChartmogul($xml) {
 	echo "<h3>Building/Sending ChartMogul Request...</h3>";
 	$url     = 'https://app.chartmogul.com/api/events/recurly/DTWfFDlBFn2CJRkCeE0cbw';
 	$ch      = curl_init();
