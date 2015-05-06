@@ -23,10 +23,10 @@ $app->post('/', function () use ($app) {
 		if ($notification->type) {
 			echo 'Got an XML notification from Recurly:<br>'.$notification->type;
 			updateChartmogul($post_xml);
-			return header("Status: 200");
+			return "Status: 200";
 		} else {
 			echo "Error occured!";
-			return header("Status: 500");
+			return "Status: 500";
 		}
 	});
 
